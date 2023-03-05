@@ -17,6 +17,14 @@ button:hover {
   font-weight: 700;
 }
 
+.github-link {
+  display: block;
+  color: #364e68;
+  font-size: 20px;
+  padding: 20px;
+  margin: 10px 10px;
+}
+
 .container {
   background: linear-gradient(to bottom, #dfe9f3 0%, white 100%);
   border: none;
@@ -43,7 +51,7 @@ button:hover {
 .current-button {
   background-color: #acdceea4;
   position: relative;
-  right: 34px;
+  right: 56px;
 }
 .current-info {
   padding: 10px 5px;
