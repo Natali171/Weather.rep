@@ -1,0 +1,136 @@
+input[type="text"]::placeholder {
+  color: rgb(28, 88, 116);
+}
+
+input[type="Submit"],
+button {
+  color: #132238ce;
+  border: 1px solid rgb(28, 88, 116);
+  border-radius: 2px;
+  padding: 2px 10px;
+  transition: all 200ms ease-in-out;
+}
+
+input[type="Submit"]:hover,
+button:hover {
+  background-color: transparent;
+  font-weight: 700;
+}
+
+.container {
+  background: linear-gradient(to bottom, #dfe9f3 0%, white 100%);
+  border: none;
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+  margin: 40px;
+  padding: 20px;
+  max-width: 600px;
+}
+.col-1.city {
+  color: rgb(28, 88, 116);
+  font-size: 15px;
+  text-align: left;
+  margin-bottom: 5px;
+}
+.city:hover {
+  text-decoration: underline;
+}
+.search-button {
+  background-color: #f3ecc8;
+  margin: auto 4px;
+}
+
+.current-button {
+  background-color: #acdceea4;
+  position: relative;
+  right: 34px;
+}
+.current-info {
+  padding: 10px 5px;
+}
+.current-city {
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 50px;
+}
+.current-day-time {
+  font-size: 16px;
+  line-height: 26px;
+}
+.current-day {
+  font-weight: 700;
+}
+.overcast {
+  font-size: 16px;
+  line-height: 10px;
+}
+.current-city,
+.current-day-time,
+.overcast {
+  text-align: left;
+  color: #364e68;
+}
+
+.current-weather-emoji {
+  text-align: left;
+  font-size: 60px;
+}
+
+.current-temperature,
+.degrees {
+  color: #364e68;
+  font-size: 50px;
+  position: relative;
+  text-align: right;
+}
+
+.current-temperature {
+  left: 50px;
+  top: 6px;
+}
+
+.degrees {
+  left: 24px;
+  bottom: 8px;
+}
+
+#celsius,
+#fahrenheit {
+  color: #307794;
+  font-size: 20px;
+  position: relative;
+  bottom: 24px;
+  transition: all 300ms ease-in-out;
+}
+
+#celsius:hover,
+#fahrenheit:hover {
+  cursor: pointer;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.current-descriptions {
+  color: #364e68;
+  font-size: 13px;
+  text-align: left;
+  padding: 10px 36px 0;
+}
+.col {
+  text-align: center;
+  font-size: 14px;
+  color: #364e68;
+}
+
+.weekday {
+  font-weight: 600;
+}
+.weather-emoji {
+  font-size: 50px;
+  text-align: center;
+  line-height: 60px;
+}
+.weekday-temperature {
+  line-height: 30px;
+  padding: 4px;
+}
