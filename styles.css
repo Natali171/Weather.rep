@@ -72,6 +72,9 @@ button:hover {
   font-size: 16px;
   line-height: 10px;
 }
+.overcast:first-letter {
+  text-transform: capitalize;
+}
 .current-city,
 .current-day-time,
 .overcast {

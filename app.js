@@ -33,88 +33,42 @@ day.innerHTML = formatDay(new Date());
 let time = document.querySelector("#time");
 time.innerHTML = formatTime(new Date());
 
-let city = "vinnytsia";
-let apiKey = "bc2cd97eaa209e7d22d8f3c84081655f";
-let curtemperature;
-let temperature = document.querySelector("#current-temperature");
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-let currentCity = document.querySelector(".current-city");
-let weatherEmoji = document.querySelector(".current-weather-emoji");
-let currenWeatherDescriptions = document.querySelector(".current-descriptions");
-let overcast = document.querySelector(".overcast");
-let weatherIcons = {
-  "01": "☀️",
-  "02": "🌤️",
-  "03": "☁️",
-  "04": "☁️",
-  "09": "🌧️",
-  10: "🌧️",
-  11: "⛈️",
-  13: "🌨️",
-  50: "🌫️",
-};
-
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", searchCity);
-
-function searchCity(event) {
-  event.preventDefault();
-  let searchCity = document.querySelector("#search-input");
-  city = searchCity.value.charAt(0).toUpperCase() + searchCity.value.slice(1);
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then(changeWeather);
-}
-
-function changeWeather(response) {
-  if (typeof response === "object") {
-    currentCity.innerHTML = city;
-    curtemperature = response.data.main.temp;
-    temperature.innerHTML = Math.round(curtemperature);
-    let pressure = response.data.main.pressure;
-    let humidity = response.data.main.humidity;
-    let wind = response.data.wind.speed;
-    weatherEmoji.innerHTML =
-      weatherIcons[response.data.weather[0].icon.slice(0, 2)];
-    currenWeatherDescriptions.innerHTML = `Pressure: ${pressure} hPa <br />Humidity: ${humidity}% <br />Wind: ${wind} m/s`;
-    overcast.innerHTML = response.data.weather[0].main;
-    celsius.removeEventListener("click", convertCelsius);
-    fahrenheit.addEventListener("click", convertFahrenheit);
-    console.log(typeof response);
-  }
-}
-
-//Geolocation
-function changetoCurrent(response) {
-  city = response.data.name;
-  currentCity.innerHTML = response.data.name;
-  axios.get(apiUrl).then(changeWeather);
-}
-function callCurrent() {
-  navigator.geolocation.getCurrentPosition(getCurrentPosition);
-}
-function getCurrentPosition(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then(changetoCurrent);
-}
-let currentButton = document.querySelector(".current-button");
-currentButton.addEventListener("click", callCurrent);
-navigator.geolocation.getCurrentPosition(getCurrentPosition);
-// Conver Units
+let currentTemperature;
 
 function convertFahrenheit() {
-  curtemperature = Math.round((curtemperature * 9) / 5 + 32);
-  temperature.innerHTML = curtemperature;
+  let curTemperature = Math.round((currentTemperature.innerHTML * 9) / 5 + 32);
+  currentTemperature.innerHTML = curTemperature;
   fahrenheit.removeEventListener("click", convertFahrenheit);
   celsius.addEventListener("click", convertCelsius);
 }
 function convertCelsius() {
-  curtemperature = Math.round(((+curtemperature - 32) * 5) / 9);
-  temperature.innerHTML = curtemperature;
+  let curTemperature = Math.round(
+    ((currentTemperature.innerHTML - 32) * 5) / 9
+  );
+  currentTemperature.innerHTML = curTemperature;
   celsius.removeEventListener("click", convertCelsius);
   fahrenheit.addEventListener("click", convertFahrenheit);
 }
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", convertFahrenheit);
 let celsius = document.querySelector("#celsius");
+
+function changeWeatherInfo(response) {
+  console.log(response);
+  currentTemperature = document.querySelector("#current-temperature");
+  let overcastElement = document.querySelector(".overcast");
+  let currentDescriptionsElement = document.querySelector(
+    ".current-descriptions"
+  );
+  currentTemperature.innerHTML = Math.round(response.data.temperature.current);
+  overcastElement.innerHTML = response.data.condition.description;
+  currentDescriptionsElement.innerHTML = `Pressure: ${response.data.temperature.pressure} hPa<br />
+Humidity: ${response.data.temperature.humidity}%<br />
+Wind: ${response.data.wind.speed} m/s`;
+}
+
+let city = "Paris";
+let apiKey = "c4b386392fb5t0ca0c484e0cc09aob16";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+
+axios.get(apiUrl).then(changeWeatherInfo);
