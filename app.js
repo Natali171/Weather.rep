@@ -72,7 +72,7 @@ Wind: ${response.data.wind.speed} m/s`;
   currentIconElement.setAttribute("alt", response.data.condition.icon);
 }
 
-let city = "Sydney";
+let city = "Vinnytsia";
 let apiKey = "c4b386392fb5t0ca0c484e0cc09aob16";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
 

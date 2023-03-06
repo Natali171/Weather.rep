@@ -64,14 +64,13 @@ button:hover {
 }
 .current-day-time {
   font-size: 16px;
-  line-height: 26px;
 }
 .current-day {
   font-weight: 700;
 }
 .overcast {
   font-size: 16px;
-  line-height: 10px;
+  white-space: nowrap;
 }
 .overcast:first-letter {
   text-transform: capitalize;
@@ -81,6 +80,11 @@ button:hover {
 .overcast {
   text-align: left;
   color: #364e68;
+}
+
+#current-weather-icon {
+  margin-left: 24px;
+  margin-top: 10px;
 }
 
 #current-temperature,
@@ -116,10 +120,11 @@ button:hover {
 
 .current-descriptions {
   color: #364e68;
-  font-size: 13px;
+  font-size: 15px;
   text-align: left;
-  padding-left: 10px;
-  padding-top: 20px;
+  padding: 0;
+  padding-top: 16px;
+  white-space: nowrap;
 }
 .col {
   text-align: center;
