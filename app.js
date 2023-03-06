@@ -55,12 +55,14 @@ let celsius = document.querySelector("#celsius");
 
 function changeWeatherInfo(response) {
   console.log(response);
+  let currentCityElement = document.querySelector(".current-city");
   currentTemperature = document.querySelector("#current-temperature");
   let overcastElement = document.querySelector(".overcast");
   let currentDescriptionsElement = document.querySelector(
     ".current-descriptions"
   );
   let currentIconElement = document.querySelector("#current-weather-icon");
+  currentCityElement.innerHTML = city;
   currentTemperature.innerHTML = Math.round(response.data.temperature.current);
   overcastElement.innerHTML = response.data.condition.description;
   currentDescriptionsElement.innerHTML = `Pressure: ${response.data.temperature.pressure} hPa<br />
