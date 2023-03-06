@@ -60,14 +60,17 @@ function changeWeatherInfo(response) {
   let currentDescriptionsElement = document.querySelector(
     ".current-descriptions"
   );
+  let currentIconElement = document.querySelector("#current-weather-icon");
   currentTemperature.innerHTML = Math.round(response.data.temperature.current);
   overcastElement.innerHTML = response.data.condition.description;
   currentDescriptionsElement.innerHTML = `Pressure: ${response.data.temperature.pressure} hPa<br />
 Humidity: ${response.data.temperature.humidity}%<br />
 Wind: ${response.data.wind.speed} m/s`;
+  currentIconElement.setAttribute("src", response.data.condition.icon_url);
+  currentIconElement.setAttribute("alt", response.data.condition.icon);
 }
 
-let city = "Paris";
+let city = "Sydney";
 let apiKey = "c4b386392fb5t0ca0c484e0cc09aob16";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
 
