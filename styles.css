@@ -26,7 +26,7 @@ button:hover {
 }
 
 .container {
-  background: linear-gradient(to bottom, #dfe9f3 0%, white 100%);
+  background: linear-gradient(to bottom, rgb(193, 222, 235) 0%, white 100%);
   border: none;
   border-radius: 4px;
   font-family: "Roboto", sans-serif;
@@ -49,7 +49,7 @@ button:hover {
 }
 
 .current-button {
-  background-color: #acdceea4;
+  background-color: #acdbee8d;
   position: relative;
   right: 56px;
 }
@@ -91,8 +91,7 @@ button:hover {
   margin-top: 10px;
 }
 
-#current-temperature,
-.degrees {
+#current-temperature {
   color: #364e68;
   font-size: 50px;
   text-align: right;
@@ -102,21 +101,24 @@ button:hover {
   padding-left: 10px;
 }
 
-.degrees {
+.units {
+  font-size: 20px;
+  color: #364e68;
+  position: relative;
+  bottom: 24px;
   padding: 2px;
 }
 
 #celsius,
 #fahrenheit {
-  color: #307794;
-  font-size: 20px;
-  position: relative;
-  bottom: 24px;
   transition: all 300ms ease-in-out;
 }
 
-#celsius:hover,
-#fahrenheit:hover {
+.active {
+  color: #299ac7;
+}
+
+.active:hover {
   cursor: pointer;
   font-size: 26px;
   font-weight: 700;

@@ -33,29 +33,27 @@ day.innerHTML = formatDay(new Date());
 let time = document.querySelector("#time");
 time.innerHTML = formatTime(new Date());
 
-let currentTemperature;
+let currentTemperature = document.querySelector("#current-temperature");
+let celsiusTemperature;
 
-function convertFahrenheit() {
-  let curTemperature = Math.round((currentTemperature.innerHTML * 9) / 5 + 32);
-  currentTemperature.innerHTML = curTemperature;
-  fahrenheit.removeEventListener("click", convertFahrenheit);
-  celsius.addEventListener("click", convertCelsius);
+function convertToFahrenheit() {
+  currentTemperature.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+  celsius.addEventListener("click", displayCelsius);
 }
-function convertCelsius() {
-  let curTemperature = Math.round(
-    ((currentTemperature.innerHTML - 32) * 5) / 9
-  );
-  currentTemperature.innerHTML = curTemperature;
-  celsius.removeEventListener("click", convertCelsius);
-  fahrenheit.addEventListener("click", convertFahrenheit);
+function displayCelsius() {
+  currentTemperature.innerHTML = Math.round(celsiusTemperature);
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
 }
 let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", convertFahrenheit);
+fahrenheit.addEventListener("click", convertToFahrenheit);
 let celsius = document.querySelector("#celsius");
 
 function changeWeatherInfo(response) {
   let currentCityElement = document.querySelector(".current-city");
-  currentTemperature = document.querySelector("#current-temperature");
+  celsiusTemperature = response.data.temperature.current;
   let overcastElement = document.querySelector(".overcast");
   let currentDescriptionsElement = document.querySelector(
     ".current-descriptions"
