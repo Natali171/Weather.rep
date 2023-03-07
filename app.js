@@ -33,9 +33,6 @@ day.innerHTML = formatDay(new Date());
 let time = document.querySelector("#time");
 time.innerHTML = formatTime(new Date());
 
-let currentTemperature = document.querySelector("#current-temperature");
-let celsiusTemperature;
-
 function convertToFahrenheit() {
   currentTemperature.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
   celsius.classList.add("active");
@@ -81,7 +78,8 @@ function searchCity(city) {
   axios.get(apiUrl).then(changeWeatherInfo);
 }
 
-searchCity("Vinnytsia");
-
+let currentTemperature = document.querySelector("#current-temperature");
+let celsiusTemperature;
 let searchCityForm = document.querySelector("#search-form");
 searchCityForm.addEventListener("submit", handleSubmit);
+searchCity("Vinnytsia");
