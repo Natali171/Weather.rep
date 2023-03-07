@@ -54,7 +54,6 @@ fahrenheit.addEventListener("click", convertFahrenheit);
 let celsius = document.querySelector("#celsius");
 
 function changeWeatherInfo(response) {
-  console.log(response);
   let currentCityElement = document.querySelector(".current-city");
   currentTemperature = document.querySelector("#current-temperature");
   let overcastElement = document.querySelector(".overcast");
@@ -62,7 +61,7 @@ function changeWeatherInfo(response) {
     ".current-descriptions"
   );
   let currentIconElement = document.querySelector("#current-weather-icon");
-  currentCityElement.innerHTML = city;
+  currentCityElement.innerHTML = response.data.city;
   currentTemperature.innerHTML = Math.round(response.data.temperature.current);
   overcastElement.innerHTML = response.data.condition.description;
   currentDescriptionsElement.innerHTML = `Pressure: ${response.data.temperature.pressure} hPa<br />
@@ -72,8 +71,19 @@ Wind: ${response.data.wind.speed} m/s`;
   currentIconElement.setAttribute("alt", response.data.condition.icon);
 }
 
-let city = "Vinnytsia";
-let apiKey = "c4b386392fb5t0ca0c484e0cc09aob16";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+function handleSubmit(event) {
+  event.preventDefault();
+  let searchCityElement = document.querySelector("#search-input");
+  searchCity(searchCityElement.value);
+}
 
-axios.get(apiUrl).then(changeWeatherInfo);
+function searchCity(city) {
+  let apiKey = "c4b386392fb5t0ca0c484e0cc09aob16";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  axios.get(apiUrl).then(changeWeatherInfo);
+}
+
+searchCity("Vinnytsia");
+
+let searchCityForm = document.querySelector("#search-form");
+searchCityForm.addEventListener("submit", handleSubmit);

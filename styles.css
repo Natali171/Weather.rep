@@ -82,6 +82,10 @@ button:hover {
   color: #364e68;
 }
 
+.col-6 {
+  padding-right: 0;
+}
+
 #current-weather-icon {
   margin-left: 24px;
   margin-top: 10px;
