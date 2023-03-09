@@ -32,42 +32,81 @@ let day = document.querySelector(".current-day");
 day.innerHTML = formatDay(new Date());
 let time = document.querySelector("#time");
 time.innerHTML = formatTime(new Date());
+let minTemp = [];
+let minTempFahrenheit = [];
+let maxTemp = [];
+let maxTempFahrenheit = [];
+
+function convertToFahrenheitForecast() {
+  let minTempElement = document.querySelectorAll(".min-temp");
+  minTempElement.forEach((temp) => {
+    minTempFahrenheit.push(
+      Math.round((+temp.innerHTML.slice(0, -1) * 9) / 5 + 32) + "°"
+    );
+    minTempFahrenheit.forEach((tempF) => {
+      temp.innerHTML = tempF;
+    });
+  });
+  let maxTempElement = document.querySelectorAll(".max-temp");
+  maxTempElement.forEach((temp) => {
+    maxTempFahrenheit.push(
+      Math.round((+temp.innerHTML.slice(0, -1) * 9) / 5 + 32) + "°"
+    );
+    maxTempFahrenheit.forEach((tempF) => {
+      temp.innerHTML = tempF;
+    });
+  });
+}
 
 function convertToFahrenheit() {
   currentTemperature.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
   celsius.classList.add("active");
   fahrenheit.classList.remove("active");
   celsius.addEventListener("click", displayCelsius);
+  convertToFahrenheitForecast();
+  fahrenheit.removeEventListener("click", convertToFahrenheit);
 }
 function displayCelsius() {
   currentTemperature.innerHTML = Math.round(celsiusTemperature);
   celsius.classList.remove("active");
   fahrenheit.classList.add("active");
+  let currentCityElement = document.querySelector(".current-city");
+  searchCity(currentCityElement.innerHTML);
+  fahrenheit.addEventListener("click", convertToFahrenheit);
 }
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", convertToFahrenheit);
 let celsius = document.querySelector("#celsius");
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHTML = "";
-  days.forEach((day) => {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col">
-          <div class="weekday">${day}</div>
+  response.data.daily.forEach((day, index) => {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col">
+          <div class="weekday">${formatDay(new Date(day.time * 1000)).slice(
+            0,
+            3
+          )}</div>
           <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-            alt=""
+            src=${day.condition.icon_url}
+            alt="${day.condition.icon}
             class="weekday-icon"
-            id=""
             width="90px"
           />
           <div class="weekday-temperature">
-            <span class="max-temp">4°</span> <span class="min-temp">2°</span>
+            <span class="max-temp">${Math.round(
+              day.temperature.maximum
+            )}°</span> <span class="min-temp">${Math.round(
+          day.temperature.minimum
+        )}°</span>
           </div>
         </div>`;
+      minTemp.push(Math.round(day.temperature.minimum));
+      maxTemp.push(Math.round(day.temperature.maximum));
+    }
   });
   forecastElement.innerHTML = forecastHTML;
 }
@@ -88,7 +127,6 @@ Humidity: ${response.data.temperature.humidity}%<br />
 Wind: ${response.data.wind.speed} m/s`;
   currentIconElement.setAttribute("src", response.data.condition.icon_url);
   currentIconElement.setAttribute("alt", response.data.condition.icon);
-  displayForecast();
 }
 
 function handleSubmit(event) {
@@ -99,8 +137,10 @@ function handleSubmit(event) {
 
 function searchCity(city) {
   let apiKey = "c4b386392fb5t0ca0c484e0cc09aob16";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-  axios.get(apiUrl).then(changeWeatherInfo);
+  let apiUrlCurrent = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  axios.get(apiUrlCurrent).then(changeWeatherInfo);
+  axios.get(apiUrlForecast).then(displayForecast);
 }
 
 let currentTemperature = document.querySelector("#current-temperature");
