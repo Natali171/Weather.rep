@@ -48,6 +48,30 @@ let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", convertToFahrenheit);
 let celsius = document.querySelector("#celsius");
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHTML = "";
+  days.forEach((day) => {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+          <div class="weekday">${day}</div>
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+            alt=""
+            class="weekday-icon"
+            id=""
+            width="90px"
+          />
+          <div class="weekday-temperature">
+            <span class="max-temp">4°</span> <span class="min-temp">2°</span>
+          </div>
+        </div>`;
+  });
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function changeWeatherInfo(response) {
   let currentCityElement = document.querySelector(".current-city");
   celsiusTemperature = response.data.temperature.current;
@@ -64,6 +88,7 @@ Humidity: ${response.data.temperature.humidity}%<br />
 Wind: ${response.data.wind.speed} m/s`;
   currentIconElement.setAttribute("src", response.data.condition.icon_url);
   currentIconElement.setAttribute("alt", response.data.condition.icon);
+  displayForecast();
 }
 
 function handleSubmit(event) {
