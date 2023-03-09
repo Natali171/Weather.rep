@@ -32,10 +32,6 @@ let day = document.querySelector(".current-day");
 day.innerHTML = formatDay(new Date());
 let time = document.querySelector("#time");
 time.innerHTML = formatTime(new Date());
-let minTemp = [];
-let minTempFahrenheit = [];
-let maxTemp = [];
-let maxTempFahrenheit = [];
 
 function convertToFahrenheitForecast() {
   let minTempElement = document.querySelectorAll(".min-temp");
@@ -74,11 +70,16 @@ function displayCelsius() {
   searchCity(currentCityElement.innerHTML);
   fahrenheit.addEventListener("click", convertToFahrenheit);
 }
+let minTemp = [];
+let minTempFahrenheit = [];
+let maxTemp = [];
+let maxTempFahrenheit = [];
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", convertToFahrenheit);
 let celsius = document.querySelector("#celsius");
 
 function displayForecast(response) {
+  console.log(response);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = "";
   response.data.daily.forEach((day, index) => {
@@ -143,8 +144,22 @@ function searchCity(city) {
   axios.get(apiUrlForecast).then(displayForecast);
 }
 
+function handlePosition(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${lat}&lon=${lon}&key=c4b386392fb5t0ca0c484e0cc09aob16&units=metric`;
+  let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?lat=${lat}&lon=${lon}&key=c4b386392fb5t0ca0c484e0cc09aob16&units=metric`;
+  axios.get(apiUrl).then(changeWeatherInfo);
+  axios.get(apiUrlForecast).then(displayForecast);
+}
+function getPosition() {
+  navigator.geolocation.getCurrentPosition(handlePosition);
+}
+
 let currentTemperature = document.querySelector("#current-temperature");
 let celsiusTemperature;
 let searchCityForm = document.querySelector("#search-form");
 searchCityForm.addEventListener("submit", handleSubmit);
-searchCity("Vinnytsia");
+let currentButton = document.querySelector(".current-button");
+currentButton.addEventListener("click", getPosition);
+getPosition();
