@@ -69,6 +69,7 @@ function displayCelsius() {
   let currentCityElement = document.querySelector(".current-city");
   searchCity(currentCityElement.innerHTML);
   fahrenheit.addEventListener("click", convertToFahrenheit);
+  celsius.removeEventListener("click", displayCelsius);
 }
 let minTemp = [];
 let minTempFahrenheit = [];
@@ -128,6 +129,10 @@ Humidity: ${response.data.temperature.humidity}%<br />
 Wind: ${response.data.wind.speed} m/s`;
   currentIconElement.setAttribute("src", response.data.condition.icon_url);
   currentIconElement.setAttribute("alt", response.data.condition.icon);
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  celsius.removeEventListener("click", displayCelsius);
+  fahrenheit.addEventListener("click", convertToFahrenheit);
 }
 
 function handleSubmit(event) {
