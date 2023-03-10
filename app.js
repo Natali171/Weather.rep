@@ -168,3 +168,10 @@ searchCityForm.addEventListener("submit", handleSubmit);
 let currentButton = document.querySelector(".current-button");
 currentButton.addEventListener("click", getPosition);
 getPosition();
+
+let quickChoice = document.querySelectorAll(".city");
+quickChoice.forEach((element) => {
+  element.addEventListener("click", () =>
+    searchCity(event.srcElement.innerHTML)
+  );
+});
