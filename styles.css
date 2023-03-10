@@ -166,8 +166,8 @@ button:hover {
 .footer {
   color: #364e68;
   display: block;
-  font-size: 11px;
-  margin-top: 140px;
+  font-size: 12px;
+  margin-top: 120px;
   text-align: center;
 }
 .github-link {
@@ -175,5 +175,5 @@ button:hover {
 }
 .github-link:hover {
   font-weight: 600;
-  font-size: 12px;
+  font-size: 13px;
 }
