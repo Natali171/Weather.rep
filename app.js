@@ -80,7 +80,6 @@ fahrenheit.addEventListener("click", convertToFahrenheit);
 let celsius = document.querySelector("#celsius");
 
 function displayForecast(response) {
-  console.log(response);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = "";
   response.data.daily.forEach((day, index) => {
