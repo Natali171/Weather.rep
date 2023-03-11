@@ -54,6 +54,16 @@ function convertToFahrenheitForecast() {
   });
 }
 
+function displayCelsiusForecast() {
+  let minTempElement = document.querySelectorAll(".min-temp");
+  for (i = 0; i < 5; i++) {
+    minTempElement[i].innerHTML = minTemp[i] + "°";
+  }
+  let maxTempElement = document.querySelectorAll(".max-temp");
+  for (i = 0; i < 5; i++) {
+    maxTempElement[i].innerHTML = maxTemp[i] + "°";
+  }
+}
 function convertToFahrenheit() {
   currentTemperature.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
   celsius.classList.add("active");
@@ -67,7 +77,7 @@ function displayCelsius() {
   celsius.classList.remove("active");
   fahrenheit.classList.add("active");
   let currentCityElement = document.querySelector(".current-city");
-  searchCity(currentCityElement.innerHTML);
+  displayCelsiusForecast();
   fahrenheit.addEventListener("click", convertToFahrenheit);
   celsius.removeEventListener("click", displayCelsius);
 }
@@ -146,6 +156,8 @@ function searchCity(city) {
   let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
   axios.get(apiUrlCurrent).then(changeWeatherInfo);
   axios.get(apiUrlForecast).then(displayForecast);
+  minTemp.length = 0;
+  maxTemp.length = 0;
 }
 
 function handlePosition(position) {
