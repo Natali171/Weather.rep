@@ -39,10 +39,16 @@ button:hover {
   padding: 20px;
   max-width: 600px;
 }
-.col-1.city {
+
+.cities {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  max-width: 35%;
+}
+.city {
   color: rgb(28, 88, 116);
   font-size: 15px;
-  text-align: left;
   margin-bottom: 5px;
 }
 .city:hover {
