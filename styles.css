@@ -2,6 +2,10 @@ body {
   background-image: url(img/photo-1428908728789-d2de25dbd4e2.avif);
   background-size: cover;
 }
+input[type="text"] {
+  border: 1px solid rgb(28, 88, 116);
+  box-shadow: 4px 6px 8px rgba(122, 165, 179, 0.575);
+}
 
 input[type="text"]::placeholder {
   color: rgb(28, 88, 116);
