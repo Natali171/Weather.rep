@@ -12,6 +12,7 @@ button {
   color: #132238ce;
   border: 1px solid rgb(28, 88, 116);
   border-radius: 2px;
+  box-shadow: 4px 6px 8px rgba(122, 165, 179, 0.575);
   padding: 2px 10px;
   transition: all 200ms ease-in-out;
 }
