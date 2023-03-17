@@ -96,7 +96,7 @@ function displayForecast(response) {
     if (index < 5) {
       forecastHTML =
         forecastHTML +
-        `<div class="col-sm">
+        `<div class="col-sm mb-4">
           <div class="weekday">${formatDay(new Date(day.time * 1000)).slice(
             0,
             3
