@@ -50,6 +50,7 @@ button:hover {
   color: rgb(28, 88, 116);
   font-size: 15px;
   margin-bottom: 5px;
+  flex: 1;
 }
 .city:hover {
   text-decoration: underline;
