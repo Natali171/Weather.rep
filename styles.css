@@ -16,7 +16,7 @@ button {
   color: #132238ce;
   border: 1px solid rgb(28, 88, 116);
   border-radius: 2px;
-  box-shadow: 4px 6px 6px rgba(122, 165, 179, 0.575);
+  box-shadow: 4px 4px 6px rgba(122, 165, 179, 0.575);
   padding: 2px 10px;
   transition: all 200ms ease-in-out;
 }
@@ -30,7 +30,7 @@ button:hover {
 .container {
   background: linear-gradient(
     to Top,
-    rgba(180, 220, 237, 0.384) 15%,
+    rgba(148, 201, 224, 0.42) 15%,
     rgba(255, 255, 255, 0.628) 65%
   );
   border-radius: 4px;
@@ -144,13 +144,19 @@ button:hover {
   white-space: nowrap;
 }
 .col-sm {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.427);
+  box-shadow: 3px 3px 4px rgba(122, 165, 179, 0.575);
   text-align: center;
   font-size: 14px;
   color: #364e68;
+  margin: 0 6px;
+  padding: 16px 0 0;
 }
 
 .weekday {
   font-weight: 600;
+  line-height: 0.2;
 }
 
 .weekday-icon {
@@ -160,7 +166,6 @@ button:hover {
 
 .weekday-temperature {
   line-height: 30px;
-  padding: 4px;
 }
 
 .max-temp {
