@@ -143,11 +143,12 @@ button:hover {
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.427);
   box-shadow: 3px 3px 4px rgba(122, 165, 179, 0.575);
-  text-align: center;
-  font-size: 14px;
   color: #364e68;
+  font-size: 14px;
   margin: 0 6px;
+  max-width: 105px;
   padding: 16px 0 0;
+  text-align: center;
 }
 
 .weekday {
