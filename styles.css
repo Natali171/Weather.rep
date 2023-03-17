@@ -5,6 +5,7 @@ body {
 input[type="text"] {
   border: 1px solid rgb(28, 88, 116);
   box-shadow: 4px 6px 8px rgba(122, 165, 179, 0.575);
+  padding: 2px;
 }
 
 input[type="text"]::placeholder {
@@ -49,7 +50,6 @@ button:hover {
 .city {
   color: rgb(28, 88, 116);
   font-size: 15px;
-  margin-bottom: 5px;
   flex: 1;
 }
 .city:hover {
@@ -58,7 +58,6 @@ button:hover {
 }
 .search-button {
   background-color: #f3ecc8;
-  margin: auto 4px;
 }
 
 .current-button {
@@ -91,10 +90,6 @@ button:hover {
 .overcast {
   text-align: left;
   color: #364e68;
-}
-
-.col-6 {
-  padding-right: 0;
 }
 
 #current-weather-icon {
