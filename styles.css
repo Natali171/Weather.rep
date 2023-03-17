@@ -44,7 +44,7 @@ button:hover {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  max-width: 35%;
+  max-width: 200px;
 }
 .city {
   color: rgb(28, 88, 116);
