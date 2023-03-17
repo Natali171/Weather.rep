@@ -63,8 +63,6 @@ button:hover {
 
 .current-button {
   background-color: #acdbee8d;
-  position: relative;
-  right: 56px;
 }
 .current-info {
   padding: 10px 5px;

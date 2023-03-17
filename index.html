@@ -26,17 +26,19 @@
         <span class="city">Kyiv</span><span class="city">Berlin</span
         ><span class="city">Paris</span><span class="city">London</span>
       </div>
-      <div class="row">
-        <div class="col-md-7">
-          <form id="search-form">
+      <form id="search-form">
+        <div class="row">
+          <div class="col-md-4">
             <input type="text" placeholder="Enter a city" id="search-input" />
+          </div>
+          <div class="col-md-2">
             <input type="submit" value="Search" class="search-button" />
-          </form>
+          </div>
+          <div class="col-md">
+            <button class="current-button">Current</button>
+          </div>
         </div>
-        <div class="col-md-5">
-          <button class="current-button">Current</button>
-        </div>
-      </div>
+      </form>
       <div class="row current-info">
         <div class="col-md-3">
           <div class="current-city"></div>
