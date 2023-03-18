@@ -4,7 +4,7 @@ body {
 }
 input[type="text"] {
   border: 1px solid rgb(28, 88, 116);
-  box-shadow: 4px 6px 8px rgba(122, 165, 179, 0.575);
+  box-shadow: 3px 3px 5px rgba(122, 165, 179, 0.466);
   padding: 2px;
 }
 
@@ -17,7 +17,7 @@ button {
   color: #132238ce;
   border: 1px solid rgb(28, 88, 116);
   border-radius: 2px;
-  box-shadow: 4px 4px 6px rgba(122, 165, 179, 0.575);
+  box-shadow: 3px 3px 5px rgba(122, 165, 179, 0.466);
   transition: all 200ms ease-in-out;
 }
 
@@ -146,7 +146,7 @@ button:hover {
   color: #364e68;
   font-size: 14px;
   margin: 0 6px;
-  max-width: 105px;
+  max-width: 150px;
   padding: 16px 0 0;
   text-align: center;
 }
