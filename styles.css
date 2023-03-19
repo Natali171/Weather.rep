@@ -1,6 +1,6 @@
 body {
   background-image: url(img/photo-1428908728789-d2de25dbd4e2.avif);
-  background-size: cover;
+  background-size: 100%;
 }
 input[type="text"] {
   border: 1px solid rgb(28, 88, 116);
@@ -41,15 +41,12 @@ button:hover {
 }
 
 .cities {
+  color: rgb(28, 88, 116);
   display: flex;
+  font-size: 15px;
   justify-content: space-between;
   flex-direction: row;
   max-width: 200px;
-}
-.city {
-  color: rgb(28, 88, 116);
-  font-size: 15px;
-  flex: 1;
 }
 .city:hover {
   text-decoration: underline;
@@ -146,7 +143,7 @@ button:hover {
   color: #364e68;
   font-size: 14px;
   margin: 0 6px;
-  max-width: 150px;
+  max-width: 116px;
   padding: 16px 0 0;
   text-align: center;
 }
@@ -179,7 +176,7 @@ button:hover {
   color: #364e68;
   display: block;
   font-size: 12px;
-  margin-top: 120px;
+  margin-top: 6%;
   text-align: center;
 }
 .github-link {
@@ -188,4 +185,48 @@ button:hover {
 .github-link:hover {
   font-weight: 600;
   font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    background: rgba(245, 252, 255, 0.769);
+    margin: 0 auto;
+  }
+  .cities {
+    font-size: 18px;
+    justify-content: space-evenly;
+    max-width: 100%;
+  }
+  input[type="text"] {
+    width: 94%;
+    text-align: center;
+  }
+
+  .search-buttons {
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  .search-form,
+  .current-city,
+  .current-day-time,
+  .overcast,
+  .current-descriptions,
+  #current-temperature,
+  #current-weather-icon {
+    text-align: center;
+  }
+  #current-weather-icon {
+    margin-left: 20%;
+  }
+
+  .current-descriptions {
+    padding-top: 0px;
+  }
+  .footer {
+    background: rgba(245, 252, 255, 0.769);
+    padding-top: 6%;
+    padding-bottom: 20%;
+    margin: 0 auto;
+  }
 }
