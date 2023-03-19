@@ -12,6 +12,10 @@ input[type="text"]::placeholder {
   color: rgb(28, 88, 116);
 }
 
+#search-input {
+  color: rgb(28, 88, 116);
+}
+
 input[type="Submit"],
 button {
   color: #132238ce;
@@ -203,6 +207,7 @@ button:hover {
     text-align: center;
     width: 94%;
   }
+
   input[type="Submit"],
   button {
     font-size: 20px;
@@ -244,6 +249,7 @@ button:hover {
   }
   .footer {
     background: rgba(245, 252, 255, 0.769);
+    font-size: 15px;
     padding-top: 6%;
     padding-bottom: 20%;
     margin: 0 auto;
