@@ -225,7 +225,7 @@ button:hover {
     margin-left: 20%;
   }
   .current-city-time {
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.427);
     box-shadow: 3px 3px 4px rgba(122, 165, 179, 0.575);
     max-width: max-content;
