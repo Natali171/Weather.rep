@@ -199,10 +199,14 @@ button:hover {
   }
   input[type="text"] {
     font-size: 20px;
+    margin-top: 10px;
     text-align: center;
     width: 94%;
   }
-
+  input[type="Submit"],
+  button {
+    font-size: 20px;
+  }
   .search-buttons {
     margin: 16px;
     justify-content: center;
