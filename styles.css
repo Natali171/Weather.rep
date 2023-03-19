@@ -198,12 +198,13 @@ button:hover {
     max-width: 100%;
   }
   input[type="text"] {
-    width: 94%;
+    font-size: 20px;
     text-align: center;
+    width: 94%;
   }
 
   .search-buttons {
-    margin-top: 10px;
+    margin: 16px;
     justify-content: center;
   }
 
@@ -222,6 +223,7 @@ button:hover {
 
   .current-descriptions {
     padding-top: 0px;
+    margin-bottom: 20px;
   }
   .footer {
     background: rgba(245, 252, 255, 0.769);
