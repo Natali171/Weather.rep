@@ -224,10 +224,23 @@ button:hover {
   #current-weather-icon {
     margin-left: 20%;
   }
+  .current-city-time {
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.427);
+    box-shadow: 3px 3px 4px rgba(122, 165, 179, 0.575);
+    max-width: max-content;
+    margin: 0 auto;
+    padding: 14px 30px;
+  }
 
+  .current-day-time,
+  .overcast {
+    font-size: 18px;
+  }
   .current-descriptions {
-    padding-top: 0px;
+    font-size: 18px;
     margin-bottom: 20px;
+    padding-top: 0px;
   }
   .footer {
     background: rgba(245, 252, 255, 0.769);
