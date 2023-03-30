@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="description" content="Weather for today, weather forecast" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
@@ -17,7 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <title>Weather</title>
+    <title id="title">Weather Forecast</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -45,7 +46,7 @@
       </form>
       <div class="row current-info">
         <div class="col-sm-3 current-city-time">
-          <div class="current-city"></div>
+          <h1 class="current-city">Current city weather</h1>
           <div class="current-day-time">
             <span class="current-day">Saturday</span>
             <span id="time">23:00</span>

@@ -130,12 +130,16 @@ function changeWeatherInfo(response) {
     ".current-descriptions"
   );
   let currentIconElement = document.querySelector("#current-weather-icon");
+  let titleElement = document.querySelector("#title");
+  let metaDescriptionElement = document.querySelector("meta[content]");
   currentCityElement.innerHTML = response.data.city;
   currentTemperature.innerHTML = Math.round(response.data.temperature.current);
   overcastElement.innerHTML = response.data.condition.description;
   currentDescriptionsElement.innerHTML = `Pressure: ${response.data.temperature.pressure} hPa<br />
 Humidity: ${response.data.temperature.humidity}%<br />
 Wind: ${response.data.wind.speed} m/s`;
+  titleElement.innerHTML = `${response.data.city} Weather Forecast`;
+  metaDescriptionElement = `<meta name="description" content="Weather in ${response.data.city} for today, weather forecast for ${response.data.city}" />`;
   currentIconElement.setAttribute("src", response.data.condition.icon_url);
   currentIconElement.setAttribute("alt", response.data.condition.icon);
   celsius.classList.remove("active");
